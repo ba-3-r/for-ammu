@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Ammu ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  </head>
+  <body>
+    <!-- Time Modal -->
+    <div
+      id="time-modal"
+      class="modal-overlay hidden"
+      onclick="closeTimeModal()"
+    >
+      <div
+        class="modal-content time-modal-style"
+        onclick="event.stopPropagation()"
+      >
+        <span class="close-btn" onclick="closeTimeModal()">&times;</span>
+        <h2 class="title">Every Second Counts ❤️</h2>
+        <div id="modal-body">
+          <p style="margin-bottom: 20px">
+            Since you said "Yes" to my proposal at 6:30 AM on Jan 6, 2023:
+          </p>
+          <div id="modal-live-counter" class="big-counter"></div>
+          <p
+            style="
+              margin-top: 20px;
+              font-style: italic;
+              font-size: 0.9rem;
+              color: #666;
+            "
+          >
+            And I've loved you more with every passing second.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Time Modal -->
+    <!-- Warning Modal -->
+    <div
+      id="warning-modal"
+      class="modal-overlay hidden"
+      onclick="closeWarningModal()"
+    >
+      <div
+        class="modal-content warning-style"
+        onclick="event.stopPropagation()"
+      >
+        <h2 id="modal-title" style="color: #7b1fa2">⚠️ No Backsies!</h2>
+        <div id="modal-body">
+          <p>You already accepted! ❤️</p>
+          <p style="font-size: 0.9rem; margin-top: 10px">
+            But since I love you, I'll let you see it again. 😉
+          </p>
+        </div>
+        <button
+          class="btn"
+          onclick="executeBackNavigation()"
+          style="margin-top: 20px"
+        >
+          Take me back anyway
+        </button>
+      </div>
+    </div>
+    <!-- Warning Modal -->
+    <!-- Stubborn Modal -->
+    <div
+      id="stubborn-modal"
+      class="modal-overlay hidden"
+      onclick="closeStubbornModal()"
+    >
+      <div
+        class="modal-content warning-style"
+        onclick="event.stopPropagation()"
+      >
+        <h2 class="title" style="font-size: 1.8rem">🙄 Seriously?</h2>
+        <div id="modal-body">
+          <p>I told you already...</p>
+          <p style="font-size: 1.2rem; font-weight: bold; margin: 15px 0">
+            No backsies means NO BACKSIES! 😤
+          </p>
+          <p>Just accept your fate and move forward with me. 😉</p>
+        </div>
+        <button
+          class="btn"
+          onclick="finalAcceptance()"
+          style="margin-top: 20px"
+        >
+          Fine, let's go forward ❤️
+        </button>
+      </div>
+    </div>
+    <!-- Stubborn Modal -->
+
+    <!-- Distance Modal -->
+    <div
+      id="distance-modal"
+      class="modal-overlay hidden"
+      onclick="closeDistanceModal()"
+    >
+      <div
+        class="modal-content distance-style"
+        onclick="event.stopPropagation()"
+      >
+        <span class="close-btn" onclick="closeDistanceModal()">&times;</span>
+        <h2 class="title">Distance Never Stood a Chance</h2>
+
+        <div class="map-container">
+          <div class="city-label left">Folsom, CA</div>
+          <div class="flight-path">
+            <div id="plane" class="plane">✈️</div>
+          </div>
+          <div class="city-label right">Laverton, VIC</div>
+        </div>
+
+        <div class="distance-message">
+          <p>
+            "7,900+ miles of ocean can't compete with a heart that already
+            belongs to you."
+          </p>
+          <p class="highlight">
+            I've never spent a single second without you in my thoughts, so for
+            me, distance was just a number, never a barrier. You're always right
+            here with me, Ammu. ❤️
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Distance Modal -->
+
+    <!-- Meeting Modal -->
+    <div
+      id="meeting-modal"
+      class="modal-overlay hidden"
+      onclick="closeMeetingModal()"
+    >
+      <div class="modal-content story-style" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeMeetingModal()">&times;</span>
+        <h2 class="title">Our 7/11 Story</h2>
+
+        <div class="story-container">
+          <div class="story-step">
+            <div class="icon">📹</div>
+            <div class="text">
+              <strong>The Morning Shift:</strong> I saw you for the first time
+              on the store cameras in Braybrook. I thought you were so pretty, I
+              just had to find a way to talk to you.
+            </div>
+          </div>
+
+          <div class="story-step">
+            <div class="icon">🌮</div>
+            <div class="text">
+              <strong>Jan 4th - The First Lunch:</strong> I finally dared to
+              call you. We went to Guzman y Gomez, laughed about ending up in
+              plain lands instead of the beach, and shopped at Werribee for
+              Boba.
+            </div>
+          </div>
+
+          <div class="story-step">
+            <div class="icon">💐</div>
+            <div class="text">
+              <strong>Jan 5th - The White Lilies:</strong> I brought you flowers
+              and we headed to Geelong Beach. We talked for hours, changed
+              clothes in the car because of the heat, and I finally asked you...
+            </div>
+          </div>
+
+          <div class="story-step">
+            <div class="icon">💖</div>
+            <div class="text">
+              <strong>Jan 6th - The "Yes":</strong> You said no at first in that
+              mall, but by 6:30 AM the next morning, my world changed forever.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Meeting Modal -->
+
+    <!-- Date Modal -->
+    <div
+      id="date-modal"
+      class="modal-overlay hidden"
+      onclick="closeDateModal()"
+    >
+      <div
+        class="modal-content comic-modal-style"
+        onclick="event.stopPropagation()"
+      >
+        <span class="close-btn" onclick="closeDateModal()">&times;</span>
+        <h2 class="title">How it actually happened...</h2>
+
+        <div class="comic-container">
+          <img
+            src="./images/Gemini_Generated_Image_6alala6alala6ala.png"
+            alt="Our First Date Story"
+            class="comic-image"
+          />
+        </div>
+
+        <div class="story-text">
+          <p>
+            From picking you up in the black Corolla with lilies to that 6:30 AM
+            "Yes" the next morning...
+          </p>
+          <p>Every moment of Jan 5th is etched in my heart forever. ❤️</p>
+        </div>
+      </div>
+    </div>
+    <!-- Date Modal -->
+
+    <!-- Flowers Modal -->
+    <div
+      id="flower-modal"
+      class="modal-overlay hidden"
+      onclick="closeFlowerModal()"
+    >
+      <div class="modal-content flower-style" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeFlowerModal()">&times;</span>
+        <h2 class="title">My Promise to You ❤️</h2>
+        <div class="modal-body">
+          <img
+            src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (8).jpeg"
+            alt="Flowers for Ammu"
+            class="promise-image"
+          />
+          <div class="promise-text">
+            <p>
+              "There will be a day where you'll have so many flowers with you,
+              and I will take care of you like a flower."
+            </p>
+            <p class="highlight">
+              I've thought about this every day since Jan 2023. ❤️
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Flowers Modal -->
+
+    <!-- Birthday Modal -->
+    <div
+      id="birthday-modal"
+      class="modal-overlay hidden"
+      onclick="closeBirthdayModal()"
+    >
+      <div class="modal-content bday-style" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeBirthdayModal()">&times;</span>
+        <h2 class="title">Celebrating Us</h2>
+
+        <div class="bday-row">
+          <div class="bday-item">
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (2).jpeg"
+              alt="Ammu's Birthday"
+              class="bday-img"
+            />
+            <p class="bday-info">Ammu's Day</p>
+          </div>
+          <div class="bday-item">
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (4).jpeg"
+              alt="Bharath's Birthday"
+              class="bday-img"
+            />
+            <p class="bday-info">My Day</p>
+          </div>
+        </div>
+
+        <div class="bday-message">
+          <p>
+            My birthday comes every day after seeing you smile when you wake up.
+            I know it's a bit cheesy ☺️, but trust me, it does.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Birthday Modal -->
+
+    <!-- Surprise Modal  -->
+    <div
+      id="surprise-modal"
+      class="modal-overlay hidden"
+      onclick="closeSurpriseModal()"
+    >
+      <div
+        class="modal-content surprise-style"
+        onclick="event.stopPropagation()"
+      >
+        <span class="close-btn" onclick="closeSurpriseModal()">&times;</span>
+        <h2 class="title">The Note That Started Everything</h2>
+
+        <div class="note-container">
+          <img
+            src="./images/WhatsApp Image 2026-02-12 at 2.49.57 PM.jpeg"
+            alt="Your First Note"
+            class="note-image"
+          />
+        </div>
+
+        <div class="note-text">
+          <p>
+            "This is the first handwritten message I ever received from you, and
+            I treasure it more than words can say. Every time I read it, I'm
+            taken back to that moment in February 2023 when my heart truly
+            melted."
+          </p>
+          <p class="highlight">
+            "And just like you said... I'll love you forever." ❤️
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Surprise Modal  -->
+
+    <!-- Gift Modal -->
+    <div
+      id="gift-modal"
+      class="modal-overlay hidden"
+      onclick="closeGiftModal()"
+    >
+      <div class="modal-content gift-style" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeGiftModal()">&times;</span>
+        <h2 class="title">My Forever Gift</h2>
+
+        <div class="carousel-container">
+          <div class="carousel-slide">
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (1).jpeg"
+              alt="Ammu 1"
+            />
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (5).jpeg"
+              alt="Ammu 2"
+            />
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (6).jpeg"
+              alt="Ammu 3"
+            />
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (9).jpeg"
+              alt="Ammu 4"
+            />
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (10).jpeg"
+              alt="Ammu 5"
+            />
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (11).jpeg"
+              alt="Ammu 6"
+            />
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (12).jpeg"
+              alt="Ammu 7"
+            />
+            <img
+              src="./images/WhatsApp Image 2026-02-12 at 12.27.37 PM (7).jpeg"
+              alt="Ammu 8"
+            />
+
+            <video controls>
+              <source
+                src="./images/WhatsApp Video 2026-02-12 at 12.27.37 PM.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+          <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+          <button class="heart-btn" onclick="showerHearts(event)">❤️</button>
+        </div>
+
+        <p class="gift-footer">
+          You are the most beautiful part of my life, Ammu.
+        </p>
+      </div>
+    </div>
+    <!-- Gift Modal -->
+
+    <!-- Celebration Modal -->
+    <div id="celebration-modal" class="modal-overlay hidden">
+        <div class="modal-content celebration-style">
+          <img
+            src="./images/first.jpeg"
+            alt="Our Happiest Moment"
+            class="final-img"
+          />
+          <h2>She Said Yes!</h2>
+          <p>
+            My life started at the moment I saw you, and it gets better every
+            day with you.
+          </p>
+          <button onclick="closeCelebration()">Close</button>
+        </div>
+      </div>
+    <!-- Celebration Modal -->
+
+    <button onclick="goBack()" class="btn-small">
+      Correction! I meant No 🥺
+    </button>
+    <div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title">Moment</h2>
+        <div id="modal-body">
+          <p id="modal-text">Message goes here...</p>
+          <img
+            id="modal-image"
+            src=""
+            style="
+              display: none;
+              width: 100%;
+              border-radius: 15px;
+              margin-top: 15px;
+            "
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="main-wrapper">
+      <section id="proposal-section" class="full-screen">
+        <div class="container">
+          <h1 class="title">Will you be my Valentine, Ammu?</h1>
+          <div class="btn-group">
+            <button id="yes-btn" class="btn">YES! ❤️</button>
+            <button id="no-btn" class="btn">No 💔</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="memory-section" class="full-screen">
+        <div class="container wide-container">
+          <h1 class="title">Our Journey</h1>
+          <div class="grid">
+            <div class="card" onclick="openTimeModal()">
+              <h3>Time Since "Yes"</h3>
+              <div id="live-counter">Calculating...</div>
+            </div>
+
+            <div class="card" onclick="openMeetingModal()">
+              <h3>How We Met 🏪</h3>
+              <p>It started at 7/11...</p>
+            </div>
+
+            <div class="card" onclick="openDistanceModal()">
+              <h3>Distance Defied ✈️</h3>
+              <p>Folsom ➔ Laverton</p>
+            </div>
+
+            <div class="card" onclick="openDateModal()">
+              <h3>Our First Date 🎡</h3>
+              <p>Jan 5, 2023</p>
+            </div>
+
+            <div id="flower-shower-container"></div>
+            <div class="card" onclick="triggerFlowerShower()">
+              <h3>Flowers 💐</h3>
+              <p>Which you like the most</p>
+            </div>
+
+            <div class="card" onclick="openBirthdayModal()">
+              <h3>Birthdays 🎂</h3>
+              <p>Our Special Days</p>
+            </div>
+
+            <div class="card" onclick="openSurpriseModal()">
+              <h3>My Surprises 🥰</h3>
+              <p>Feb 2023</p>
+            </div>
+
+            <div class="card" onclick="openGiftModal()">
+              <h3>Best gift for me 🎁</h3>
+              <p>FOREVER.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="final-proposal-section">
+        <div class="proposal-container">
+          <div class="video-side">
+            <video autoplay muted loop class="proposal-vid">
+              <source src="./images/WhatsApp Video 2026-02-12 at 3.20.59 PM.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="text-side">
+            <h2 class="romantic-text">
+              Ammu, will you be my forever Valentine? 💍
+            </h2>
+            <div class="proposal-btns">
+              <button class="yes-btn-final" onclick="celebrateProposal()">
+                YES! ❤️
+              </button>
+              <button class="no-btn-final" onmouseover="moveNoButton(this)">
+                No 😢
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
