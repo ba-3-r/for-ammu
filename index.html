@@ -11,8 +11,22 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </head>
-  <body>
-    
+  <body onload="initProtection()">
+    <!-- Security -->
+    <div id="gatekeeper-overlay">
+      <div class="login-box">
+        <h2 style="font-family: &quot;Georgia&quot;, serif; color: #7b1fa2">
+          Please enter password 🕵️‍♂️
+        </h2>
+        <input type="password" id="secret-date-input" placeholder="...." />
+        <button onclick="checkAccess()">Enter</button>
+        <p id="error-msg" style="color: red; display: none">
+          Try again agent 🕵️‍♂️, otherwise you'll be locked.
+        </p>
+      </div>
+    </div>
+    <!-- Security -->
+
     <!-- Time Modal -->
     <div
       id="time-modal"
@@ -384,20 +398,20 @@
 
     <!-- Celebration Modal -->
     <div id="celebration-modal" class="modal-overlay hidden">
-        <div class="modal-content celebration-style">
-          <img
-            src="./images/first.jpeg"
-            alt="Our Happiest Moment"
-            class="final-img"
-          />
-          <h2>She Said Yes!</h2>
-          <p>
-            My life started at the moment I saw you, and it gets better every
-            day with you.
-          </p>
-          <button onclick="closeCelebration()">Close</button>
-        </div>
+      <div class="modal-content celebration-style">
+        <img
+          src="./images/first.jpeg"
+          alt="Our Happiest Moment"
+          class="final-img"
+        />
+        <h2>She Said Yes!</h2>
+        <p>
+          My life started at the moment I saw you, and it gets better every day
+          with you.
+        </p>
+        <button onclick="closeCelebration()">Close</button>
       </div>
+    </div>
     <!-- Celebration Modal -->
 
     <button onclick="goBack()" class="btn-small">
@@ -485,7 +499,10 @@
         <div class="proposal-container">
           <div class="video-side">
             <video autoplay muted loop class="proposal-vid">
-              <source src="./images/WhatsApp Video 2026-02-12 at 3.20.59 PM.mp4" type="video/mp4" />
+              <source
+                src="./images/WhatsApp Video 2026-02-12 at 3.20.59 PM.mp4"
+                type="video/mp4"
+              />
             </video>
           </div>
 
@@ -504,7 +521,6 @@
           </div>
         </div>
       </section>
-
     </div>
     <script src="script.js"></script>
   </body>

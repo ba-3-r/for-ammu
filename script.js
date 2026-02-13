@@ -370,3 +370,33 @@ function moveNoButton(btn) {
     btn.style.left = x + 'px';
     btn.style.top = y + 'px';
 }
+
+// Run this as soon as the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('locked');
+    
+    // Block Right Click
+    document.oncontextmenu = () => false;
+
+    // Block F12 and Shortcuts
+    document.onkeydown = (e) => {
+        if (e.keyCode == 123 || (e.ctrlKey && (e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || e.keyCode == 85)) {
+            return false;
+        }
+    };
+});
+
+function checkAccess() {
+    const input = document.getElementById('secret-date-input').value;
+    const overlay = document.getElementById('gatekeeper-overlay');
+    const content = document.getElementById('main-content');
+
+    if (input === "06012023") {
+        overlay.style.display = 'none';
+        content.style.visibility = 'visible';
+        content.style.opacity = '1';
+        document.body.classList.remove('locked');
+    } else {
+        document.getElementById('error-msg').style.display = 'block';
+    }
+}

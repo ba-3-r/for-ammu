@@ -650,3 +650,21 @@ body.scroll-enabled .btn-small {
     width: 100%;
     border-radius: 15px;
 }
+
+#gatekeeper-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* Solid white so she can't see behind it */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999; /* Higher than any other element */
+}
+
+/* This hides the scrollbar so she can't scroll past the login */
+body.locked {
+    overflow: hidden;
+}
